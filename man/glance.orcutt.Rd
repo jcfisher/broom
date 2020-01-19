@@ -51,8 +51,7 @@ glance(co)
 \seealso{
 \code{\link[=glance]{glance()}}, \code{\link[orcutt:cochrane.orcutt]{orcutt::cochrane.orcutt()}}
 
-Other orcutt tidiers: 
-\code{\link{tidy.orcutt}()}
+Other orcutt tidiers: \code{\link{tidy.orcutt}}
 }
 \concept{orcutt tidiers}
 \value{

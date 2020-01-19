@@ -16,7 +16,6 @@
 #' @examples
 #'
 #' fit <- arima(lh, order = c(1, 0, 0))
-#' 
 #' tidy(fit)
 #' glance(fit)
 #'
@@ -37,10 +36,8 @@ tidy.Arima <- function(x, conf.int = FALSE, conf.level = 0.95, ...) {
   ))
 
   if (conf.int) {
-    ci <- broom_confint_terms(x, level = conf.level)
-    ret <- dplyr::left_join(ret, ci, by = "term")
+    ret <- cbind(ret, confint_tidy(x))
   }
-  
   as_tibble(ret)
 }
 

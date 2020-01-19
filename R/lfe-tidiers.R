@@ -5,8 +5,6 @@
 #' @template param_confint
 #' @param fe Logical indicating whether or not to include estimates of
 #'   fixed effects. Defaults to `FALSE`.
-#' @param robust Logical indicating robust or clustered SEs should be used.
-#'   See lfe::summary.felm for details. Defaults to `FALSE`.
 #' @template param_unused_dots
 #'
 #' @evalRd return_tidy(regression = TRUE)
@@ -30,10 +28,9 @@
 #' 
 #' result_felm <- felm(v2~v3|id+v1, DT)
 #' tidy(result_felm, fe = TRUE)
-#' tidy(result_felm, robust = TRUE)
 #' augment(result_felm)
 #' 
-#' v1 <- DT$v1
+#' v1<-DT$v1
 #' v2 <- DT$v2
 #' v3 <- DT$v3
 #' id <- DT$id
@@ -47,19 +44,19 @@
 #' @aliases felm_tidiers lfe_tidiers
 #' @family felm tidiers
 #' @seealso [tidy()], [lfe::felm()]
-tidy.felm <- function(x, conf.int = FALSE, conf.level = .95, fe = FALSE, robust = FALSE, ...) {
+tidy.felm <- function(x, conf.int = FALSE, conf.level = .95, fe = FALSE, ...) {
 
   has_multi_response <- length(x$lhs) > 1
   
   nn <- c("estimate", "std.error", "statistic", "p.value")
   if(has_multi_response) {
-    ret <-  map_df(x$lhs, function(y) stats::coef(summary(x, lhs = y, robust = robust)) %>% 
+    ret <-  map_df(x$lhs, function(y) stats::coef(summary(x, lhs = y)) %>% 
                      fix_data_frame(nn) %>% 
                      mutate(response = y)) %>% 
       select(response, everything())
     
   } else {
-    ret <- fix_data_frame(stats::coef(summary(x, robust = robust)), nn)  
+    ret <- fix_data_frame(stats::coef(summary(x)), nn)  
   }
   
 

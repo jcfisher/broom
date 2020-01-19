@@ -46,37 +46,25 @@ glance.svyolr <- function(x, ...) {
 }
 
 #' @templateVar class svyglm
-#' @template title_desc_tidy
+#' @template title_desc_tidy_lm_wrapper
 #'
 #' @param x A `svyglm` object returned from [survey::svyglm()].
-#' @template param_confint
-#' @template param_exponentiate
-#' @template param_unused_dots
 #'
 #' @export
-#' @family survey tidiers
+#' @family lm tidiers
 #' @seealso [survey::svyglm()], [stats::glm()]
-tidy.svyglm <- function(x, conf.int = FALSE, conf.level = 0.95,
+#' 
+tidy.svyglm <- function(x, conf.int = FALSE, conf.level = .95,
                         exponentiate = FALSE, ...) {
   
-  ret <- as_tibble(summary(x)$coefficients, rownames = "term")
-  colnames(ret) <- c("term", "estimate", "std.error", "statistic", "p.value")
+  s <- summary(x)
+  ret <- tidy.summary.lm(s)
   
-  # summary(x)$coefficients misses rank deficient rows (i.e. coefs that
-  # summary.lm() sets to NA), catch them here and add them back
-  
-  coefs <- tibble::enframe(stats::coef(x), name = "term", value = "estimate")
-  ret <- left_join(coefs, ret, by = c("term", "estimate"))
-  
-  if (conf.int) {
-    ci <- broom_confint_terms(x, level = conf.level)
-    ret <- dplyr::left_join(ret, ci, by = "term")
-  }
-  
-  if (exponentiate)
-    ret <- exponentiate(ret)
-  
-  ret
+  # TODO: drop process_lm() dependence
+  process_lm(ret, x,
+             conf.int = conf.int, conf.level = conf.level,
+             exponentiate = exponentiate
+  )
   
 }
 

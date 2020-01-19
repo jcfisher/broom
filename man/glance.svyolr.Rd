@@ -47,16 +47,11 @@ glance(fit)
 \seealso{
 \link{tidy}, \code{\link[survey:svyolr]{survey::svyolr()}}
 
-Other ordinal tidiers: 
-\code{\link{augment.clm}()},
-\code{\link{augment.polr}()},
-\code{\link{glance.clmm}()},
-\code{\link{glance.clm}()},
-\code{\link{glance.polr}()},
-\code{\link{tidy.clmm}()},
-\code{\link{tidy.clm}()},
-\code{\link{tidy.polr}()},
-\code{\link{tidy.svyolr}()}
+Other ordinal tidiers: \code{\link{augment.clm}},
+  \code{\link{augment.polr}}, \code{\link{glance.clmm}},
+  \code{\link{glance.clm}}, \code{\link{glance.polr}},
+  \code{\link{tidy.clmm}}, \code{\link{tidy.clm}},
+  \code{\link{tidy.polr}}, \code{\link{tidy.svyolr}}
 }
 \concept{ordinal tidiers}
 \value{

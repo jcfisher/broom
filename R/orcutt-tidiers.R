@@ -1,8 +1,7 @@
 #' @templateVar class orcutt
-#' @template title_desc_tidy
+#' @template title_desc_tidy_lm_wrapper
 #' 
 #' @param x An `orcutt` object returned from [orcutt::cochrane.orcutt()].
-#' @template param_unused_dots
 #'
 #' @evalRd return_tidy(
 #'   "term",

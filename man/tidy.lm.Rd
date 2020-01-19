@@ -3,9 +3,13 @@
 \name{tidy.lm}
 \alias{tidy.lm}
 \alias{lm_tidiers}
+\alias{tidy.summary.lm}
 \title{Tidy a(n) lm object}
 \usage{
-\method{tidy}{lm}(x, conf.int = FALSE, conf.level = 0.95, ...)
+\method{tidy}{lm}(x, conf.int = FALSE, conf.level = 0.95,
+  exponentiate = FALSE, ...)
+
+\method{tidy}{summary.lm}(x, ...)
 }
 \arguments{
 \item{x}{An \code{lm} object created by \code{\link[stats:lm]{stats::lm()}}.}
@@ -16,6 +20,11 @@ interval in the tidied output. Defaults to \code{FALSE}.}
 \item{conf.level}{The confidence level to use for the confidence interval
 if \code{conf.int = TRUE}. Must be strictly greater than 0 and less than 1.
 Defaults to 0.95, which corresponds to a 95 percent confidence interval.}
+
+\item{exponentiate}{Logical indicating whether or not to exponentiate the
+the coefficient estimates. This is typical for logistic and multinomial
+regressions, but a bad idea if there is no log or logit link. Defaults
+to \code{FALSE}.}
 
 \item{...}{Additional arguments. Not used. Needed to match generic
 signature only. \strong{Cautionary note:} Misspelled arguments will be
@@ -37,7 +46,10 @@ specify which components to return.
 }
 \details{
 If the linear model is an \code{mlm} object (multiple linear model),
-there is an additional column \code{response}. See \code{\link[=tidy.mlm]{tidy.mlm()}}.
+there is an additional column \code{response}.
+
+If you have missing values in your model data, you may need to refit
+the model with \code{na.action = na.exclude}.
 }
 \examples{
 
@@ -87,20 +99,15 @@ a <- matrix(rnorm(20), nrow = 10)
 b <- a + rnorm(length(a))
 result <- lm(b ~ a)
 tidy(result)
-
 }
 \seealso{
 \code{\link[=tidy]{tidy()}}, \code{\link[stats:summary.lm]{stats::summary.lm()}}
 
-Other lm tidiers: 
-\code{\link{augment.glm}()},
-\code{\link{augment.lm}()},
-\code{\link{glance.glm}()},
-\code{\link{glance.lm}()},
-\code{\link{glance.svyglm}()},
-\code{\link{tidy.glm}()},
-\code{\link{tidy.lm.beta}()},
-\code{\link{tidy.mlm}()}
+Other lm tidiers: \code{\link{augment.glm}},
+  \code{\link{augment.lm}}, \code{\link{glance.glm}},
+  \code{\link{glance.lm}}, \code{\link{glance.svyglm}},
+  \code{\link{tidy.glm}}, \code{\link{tidy.lm.beta}},
+  \code{\link{tidy.mlm}}, \code{\link{tidy.svyglm}}
 }
 \concept{lm tidiers}
 \value{

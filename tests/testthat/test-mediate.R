@@ -1,10 +1,17 @@
 context("mediate")
 
+skip_if_not_installed("MASS")
+skip_if_not_installed("Matrix")
+skip_if_not_installed("mvtnorm")
+skip_if_not_installed("sandwich")
 
-skip_if_not_installed("modeltests")
-library(modeltests)
+library(MASS)
+library(Matrix)
+library(mvtnorm)
+library(sandwich)
 
 skip_if_not_installed("mediation")
+
 library(mediation)
 
 data(jobs)
@@ -14,11 +21,12 @@ mod <- mediate(b, c, sims = 50, treat = "treat", mediator = "job_seek")
 
 test_that("mediation tidier arguments", {
   check_arguments(tidy.mediate)
+
 })
 
 test_that("tidy.mediation", {
   
-  td1 <- tidy(mod, conf.int = TRUE, conf.level = 0.99)
+  td1 <- tidy(mod, conf.int = TRUE, conf.level = .99)
   td2 <- tidy(mod, conf.int = TRUE)
   
   check_tidy_output(td1)

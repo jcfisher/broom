@@ -4,15 +4,9 @@
 \alias{augment.glm}
 \title{Augment data with information from a(n) glm object}
 \usage{
-\method{augment}{glm}(
-  x,
-  data = model.frame(x),
-  newdata = NULL,
+\method{augment}{glm}(x, data = model.frame(x), newdata = NULL,
   type.predict = c("link", "response", "terms"),
-  type.residuals = c("deviance", "pearson"),
-  se_fit = FALSE,
-  ...
-)
+  type.residuals = c("deviance", "pearson"), se_fit = FALSE, ...)
 }
 \arguments{
 \item{x}{A \code{glm} object returned from \code{\link[stats:glm]{stats::glm()}}.}
@@ -100,15 +94,11 @@ the \code{newdata} argument.
 \seealso{
 \code{\link[stats:glm]{stats::glm()}}
 
-Other lm tidiers: 
-\code{\link{augment.lm}()},
-\code{\link{glance.glm}()},
-\code{\link{glance.lm}()},
-\code{\link{glance.svyglm}()},
-\code{\link{tidy.glm}()},
-\code{\link{tidy.lm.beta}()},
-\code{\link{tidy.lm}()},
-\code{\link{tidy.mlm}()}
+Other lm tidiers: \code{\link{augment.lm}},
+  \code{\link{glance.glm}}, \code{\link{glance.lm}},
+  \code{\link{glance.svyglm}}, \code{\link{tidy.glm}},
+  \code{\link{tidy.lm.beta}}, \code{\link{tidy.lm}},
+  \code{\link{tidy.mlm}}, \code{\link{tidy.svyglm}}
 }
 \concept{lm tidiers}
 \value{

@@ -54,9 +54,8 @@ augment(fit, x)
 \seealso{
 \code{\link[=glance]{glance()}}, \code{\link[stats:kmeans]{stats::kmeans()}}
 
-Other kmeans tidiers: 
-\code{\link{augment.kmeans}()},
-\code{\link{tidy.kmeans}()}
+Other kmeans tidiers: \code{\link{augment.kmeans}},
+  \code{\link{tidy.kmeans}}
 }
 \concept{kmeans tidiers}
 \value{
