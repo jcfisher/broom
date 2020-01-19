@@ -56,8 +56,7 @@ glance(fit.gear)
 \seealso{
 \code{\link[=glance]{glance()}}, \code{\link[nnet:multinom]{nnet::multinom()}}
 
-Other multinom tidiers: 
-\code{\link{tidy.multinom}()}
+Other multinom tidiers: \code{\link{tidy.multinom}}
 }
 \concept{multinom tidiers}
 \value{

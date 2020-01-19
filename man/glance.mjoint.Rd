@@ -82,8 +82,7 @@ glance(fit)
 \seealso{
 \code{\link[=glance]{glance()}}, \code{\link[joineRML:mjoint]{joineRML::mjoint()}}
 
-Other mjoint tidiers: 
-\code{\link{tidy.mjoint}()}
+Other mjoint tidiers: \code{\link{tidy.mjoint}}
 }
 \concept{mjoint tidiers}
 \value{

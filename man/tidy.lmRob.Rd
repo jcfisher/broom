@@ -45,10 +45,8 @@ glance(m)
 \seealso{
 \code{\link[robust:lmRob]{robust::lmRob()}}
 
-Other robust tidiers: 
-\code{\link{augment.lmRob}()},
-\code{\link{glance.glmRob}()},
-\code{\link{glance.lmRob}()},
-\code{\link{tidy.glmRob}()}
+Other robust tidiers: \code{\link{augment.lmRob}},
+  \code{\link{glance.glmRob}}, \code{\link{glance.lmRob}},
+  \code{\link{tidy.glmRob}}
 }
 \concept{robust tidiers}

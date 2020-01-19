@@ -88,9 +88,8 @@ augment(p, x) \%>\%
 \seealso{
 \code{\link[=augment]{augment()}}, \code{\link[cluster:pam]{cluster::pam()}}
 
-Other pam tidiers: 
-\code{\link{glance.pam}()},
-\code{\link{tidy.pam}()}
+Other pam tidiers: \code{\link{glance.pam}},
+  \code{\link{tidy.pam}}
 }
 \concept{pam tidiers}
 \value{

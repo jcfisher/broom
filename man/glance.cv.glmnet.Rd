@@ -91,10 +91,8 @@ ggplot(tidied, aes(lambda, estimate, group = term)) +
 \seealso{
 \code{\link[=glance]{glance()}}, \code{\link[glmnet:cv.glmnet]{glmnet::cv.glmnet()}}
 
-Other glmnet tidiers: 
-\code{\link{glance.glmnet}()},
-\code{\link{tidy.cv.glmnet}()},
-\code{\link{tidy.glmnet}()}
+Other glmnet tidiers: \code{\link{glance.glmnet}},
+  \code{\link{tidy.cv.glmnet}}, \code{\link{tidy.glmnet}}
 }
 \concept{glmnet tidiers}
 \value{

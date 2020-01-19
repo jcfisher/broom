@@ -4,7 +4,8 @@
 \alias{augment.rlm}
 \title{Augment data with information from a(n) rlm object}
 \usage{
-\method{augment}{rlm}(x, data = model.frame(x), newdata = NULL, se_fit = FALSE, ...)
+\method{augment}{rlm}(x, data = model.frame(x), newdata = NULL,
+  se_fit = FALSE, ...)
 }
 \arguments{
 \item{x}{An \code{rlm} object returned by \code{\link[MASS:rlm]{MASS::rlm()}}.}
@@ -84,7 +85,6 @@ For tidiers for models from the \pkg{robust} package see
 library(MASS)
 
 r <- rlm(stack.loss ~ ., stackloss)
-
 tidy(r)
 augment(r)
 glance(r)
@@ -93,9 +93,8 @@ glance(r)
 \seealso{
 \code{\link[MASS:rlm]{MASS::rlm()}}
 
-Other rlm tidiers: 
-\code{\link{glance.rlm}()},
-\code{\link{tidy.rlm}()}
+Other rlm tidiers: \code{\link{glance.rlm}},
+  \code{\link{tidy.rlm}}
 }
 \concept{rlm tidiers}
 \value{

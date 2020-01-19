@@ -42,13 +42,10 @@ tidy(anova(a, b))
 \seealso{
 \code{\link[=tidy]{tidy()}}, \code{\link[stats:anova]{stats::anova()}}, \code{\link[car:Anova]{car::Anova()}}
 
-Other anova tidiers: 
-\code{\link{glance.aov}()},
-\code{\link{tidy.TukeyHSD}()},
-\code{\link{tidy.aovlist}()},
-\code{\link{tidy.aov}()},
-\code{\link{tidy.manova}()},
-\code{\link{tidy.summary.manova}()}
+Other anova tidiers: \code{\link{glance.aov}},
+  \code{\link{tidy.TukeyHSD}}, \code{\link{tidy.aovlist}},
+  \code{\link{tidy.aov}}, \code{\link{tidy.manova}},
+  \code{\link{tidy.summary.manova}}
 }
 \concept{anova tidiers}
 \value{

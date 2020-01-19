@@ -6,12 +6,7 @@ library(modeltests)
 skip_if_not_installed("MASS")
 library(MASS)
 
-fit <- polr(
-  Sat ~ Infl + Type + Cont, weights = Freq,
-  data = housing,
-  Hess = TRUE
-)
-
+fit <- polr(Sat ~ Infl + Type + Cont, weights = Freq, data = housing)
 fit2 <- polr(Sat ~ Freq, data = housing)
 
 test_that("MASS::polr tidier arguments", {
@@ -53,8 +48,4 @@ test_that("augment.polr", {
   expect_is(au$.fitted, 'factor')
   expect_equal(predict(fit, type = 'class'), au$.fitted)
   
-})
-
-test_that("suppress Waiting for profiling to be done... message", {
-  expect_silent(tidy(fit, conf.int = TRUE))
 })
